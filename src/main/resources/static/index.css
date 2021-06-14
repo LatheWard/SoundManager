@@ -1,0 +1,33 @@
+body{
+    display: grid;
+    justify-content: center;
+    background-color: #2B2D42;
+    color: black;
+}
+
+h1{
+    font-size: 55px;
+}
+a{
+    text-decoration: none;
+}
+a:visited{
+    color:#EF233C
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    padding: 15px 15px 15px 15px;
+    background-color: #8D99AE;
+}
+
+.flex-container > div {
+    background-color: #EDF2F4;
+    width: 25rem;
+    margin: 10px;
+    text-align: center;
+    font-size: 20px;
+}
