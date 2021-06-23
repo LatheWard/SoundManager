@@ -1,7 +1,6 @@
 package com.example.SoundManager.UserStuff;
 import javax.persistence.*;
 
-
     @Entity
     @Table(name = "users")
     public class User {
