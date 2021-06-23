@@ -1,7 +1,7 @@
 package EquipmentStuff;
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Arrays;
+
 
 @Entity
 @Table(name = "equipment")
@@ -9,13 +9,22 @@ public class Equipment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String[] categories = {"Cables", "Power-Amps", "Speakers", "Mics", "Misc"};
+    private ArrayList<String> categories = new ArrayList<String>();
+
+    public Equipment() {
+        categories.add("Cables");
+        categories.add("Power-Amps");
+        categories.add("Speakers");
+        categories.add("Mics");
+        categories.add("Miscl");
+    }
 
     @Column
     private String name;
 
     @Column
     private String type;
+
 
     public Long getId() {
         return id;
@@ -34,8 +43,7 @@ public class Equipment {
     }
 
     public void setType(String type) {
-        boolean result = Arrays.stream(categories).anyMatch("A"::equals);
-        if (result){
+        if(categories.contains(type)){
             this.type = type;
         }
     }
