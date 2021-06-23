@@ -10,8 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-
 import java.util.List;
 
 @Controller
@@ -46,7 +44,6 @@ import java.util.List;
     @GetMapping("/addequipment")
     public String showAddequipmentForm(Model model) {
         model.addAttribute("equipment", new Equipment());
-
         return "addequipment";
     }
     }
