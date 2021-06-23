@@ -1,13 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="ISO-8859-1">
+    <title>Add Equipment Form</title>
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-    <title>Add Equipment</title>
 </head>
 <body>
-<h1>Add New Equipment Here</h1>
+<div class="container text-center">
+    <div>
+        <h1>Add Equipment Here</h1>
+    </div>
+    <form th:action="@{/process_register}" th:object="${user}"
+          method="post" style="max-width: 600px; margin: 0 auto;">
+        <div class="m-3">
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Name</label>
+                <div class="col-8">
+                    <input type="text" th:field="*{name}" class="form-control"
+                           required minlength="2" maxlength="25"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Type of Equipment</label>
+                <div class="col-8">
+                    <select th:field="*{type}">
+                        <option value="">Select Country</option>
+                        <option th:each="Type : ${type}" th:value="${country}" th:text="${country}"></option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-primary">Add Equipment</button>
+            </div>
+        </div>
+    </form>
+</div>
 </body>
 </html>

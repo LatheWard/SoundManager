@@ -9,15 +9,6 @@ public class Equipment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private ArrayList<String> categories = new ArrayList<String>();
-
-    public Equipment() {
-        categories.add("Cables");
-        categories.add("Power-Amps");
-        categories.add("Speakers");
-        categories.add("Mics");
-        categories.add("Miscl");
-    }
 
     @Column
     private String name;
@@ -42,9 +33,7 @@ public class Equipment {
     }
 
     public void setType(String type) {
-        if(categories.contains(type)){
             this.type = type;
-        }
     }
 
     @Override
