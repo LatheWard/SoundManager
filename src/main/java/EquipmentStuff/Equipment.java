@@ -25,7 +25,6 @@ public class Equipment {
     @Column
     private String type;
 
-
     public Long getId() {
         return id;
     }
