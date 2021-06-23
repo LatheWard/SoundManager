@@ -1,6 +1,5 @@
-package EquipmentStuff;
+package com.example.SoundManager.EquipmentStuff;
 import javax.persistence.*;
-import java.util.ArrayList;
 
 
 @Entity

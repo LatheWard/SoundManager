@@ -1,22 +1,24 @@
 package com.example.SoundManager.Controllers;
 
 
-import EquipmentStuff.Equipment;
+import com.example.SoundManager.EquipmentStuff.Equipment;
+import com.example.SoundManager.EquipmentStuff.EquipmentService;
 import com.example.SoundManager.UserStuff.User;
 import com.example.SoundManager.UserStuff.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
     public class AppController {
 
         @Autowired
         private UserRepository userRepo;
+
+        @Autowired
+        EquipmentService equipmentService;
 
         @GetMapping("")
         public String viewHomePage() {
@@ -41,9 +43,17 @@ import java.util.List;
             return "register_success";
         }
 
-    @GetMapping("/addequipment")
-    public String showAddequipmentForm(Model model) {
-        model.addAttribute("equipment", new Equipment());
-        return "addequipment";
-    }
+        @GetMapping("/addequipment")
+        public String showAddEquipmentForm(Model model) {
+            model.addAttribute("equipment", new Equipment());
+            return "addequipment";
+        }
+
+        @RequestMapping(value = "/addedequipment", method = RequestMethod.POST)
+        public String processAddEquipment(@ModelAttribute("equipment") Equipment equipment) {
+            equipmentService.saveEquipment(equipment);
+            return "redirect:/";
+        }
+
+
     }
