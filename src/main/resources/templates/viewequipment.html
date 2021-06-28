@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>View Equipment</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+  <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container text-center">
+  <div>
+    <h1>List of Equipment</h1>
+  </div>
+
+  <div>
+    <table class="table table-striped table-bordered">
+      <thead class="thead">
+      <tr>
+        <th style="background-color: #ef233c; color: white;">Name</th>
+        <th style="background-color: #ef233c; color: white;" >Type</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="equip: ${listEquipment}">
+        <td th:text="${equip.name}">Name</td>
+        <td th:text="${equip.type}">Type</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <a th:href="@{/}"><h2>Home</h2></a>
+</div>
+</body>
+</html>

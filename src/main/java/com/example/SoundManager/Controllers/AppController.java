@@ -2,6 +2,7 @@ package com.example.SoundManager.Controllers;
 
 
 import com.example.SoundManager.EquipmentStuff.Equipment;
+import com.example.SoundManager.EquipmentStuff.EquipmentRepository;
 import com.example.SoundManager.EquipmentStuff.EquipmentService;
 import com.example.SoundManager.UserStuff.User;
 import com.example.SoundManager.UserStuff.UserRepository;
@@ -11,11 +12,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
     public class AppController {
 
         @Autowired
         private UserRepository userRepo;
+
+        @Autowired
+        private EquipmentRepository equipRepo;
 
         @Autowired
         EquipmentService equipmentService;
@@ -43,6 +49,14 @@ import org.springframework.web.bind.annotation.*;
             return "register_success";
         }
 
+        @GetMapping("/users")
+        public String listUsers(Model model) {
+            List<User> listUsers = userRepo.findAll();
+            model.addAttribute("listUsers", listUsers);
+
+            return "users";
+        }
+
         @GetMapping("/addequipment")
         public String showAddEquipmentForm(Model model) {
             model.addAttribute("equipment", new Equipment());
@@ -55,5 +69,20 @@ import org.springframework.web.bind.annotation.*;
             return "redirect:/";
         }
 
+    @GetMapping("/viewequipment")
+    public String listEquipment(Model model) {
+        List<Equipment> listEquipment = equipRepo.findAll();
+        model.addAttribute("listEquipment", listEquipment);
+
+        return "viewequipment";
+    }
+
+    @GetMapping("/cables")
+    public String listCables(Model model) {
+        List<Equipment> listEquipment = equipRepo.findAll();
+        model.addAttribute("listEquipment", listEquipment);
+
+        return "cables";
+    }
 
     }

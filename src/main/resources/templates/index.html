@@ -11,18 +11,24 @@
   <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
+<div class="flex-container" style="background-color: #ef233c; color: white;">
+  <h1>Harrison's 1810</h1>
+</div>
+
+</span>
 <div class="flex-container">
-  <h1>SE-O</h1>
+  <h1>Equipment Manager</h1>
   <div><a href="/cables"><h2>Cables</h2></a></div>
   <div><a href="/poweramps"><h2>Power-Amps</h2></a></div>
   <div><a href="/speakers"><h2>Speakers</h2></a></div>
   <div><a href="/mics"><h2>Mics</h2></a></div>
   <div><a href="/miscl"><h2>Miscellaneous</h2></a></div>
+  <div><a th:href="@{/addequipment}"><h2>Add Equipment</h2></a></div>
+  <div><a th:href="@{/register}"><h2>Register</h2></a></div>
+  <div><a th:href="@{/login}"><h2>Login</h2></a></div>
+  <div><a th:href="@{/users}"><h2>See all users</h2></a></div>
+  <div><a th:href="@{/logout}"><h2>Sign Out</h2></a></div>
 </div>
-
-<h3><a th:href="@{/addequipment}">Add Equipment</a></h3>
-<h3><a th:href="@{/register}">Register</a></h3>
-<h3><a th:href="@{/login}">Login</a></h3>
 
 </body>
 </html>
