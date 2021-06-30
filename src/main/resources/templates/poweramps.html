@@ -14,6 +14,8 @@
   <tr>
     <th style="background-color: #ef233c; color: white;">Name</th>
     <th style="background-color: #ef233c; color: white;" >Type</th>
+    <th style="background-color: #ef233c; color: white;">Options</th>
+
   </tr>
   </thead>
   <tbody>
@@ -21,9 +23,11 @@
     <div th:if="${equip.type == 'PowerAmp'}">
       <td th:text="${equip.name}">Name</td>
       <td th:text="${equip.type}">Type</td>
+      <td>
+        <a th:href="@{'/delete/' + ${equip.id}}">Delete</a>
+      </td>
     </div>
   </tr>
-  <a th:href="@{'/delete/' + ${equip.id}}">Delete</a>
   </tr>
   </tbody>
 </table>
