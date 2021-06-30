@@ -12,9 +12,6 @@
 <div class="container text-center">
     <div>
         <form th:action="@{/logout}" method="post">
-            <p>
-                Welcome <b>[[${#requestremoteUser}]]</b>
-            </p>
             <input type="submit" value="Sign Out" />
         </form>
     </div>

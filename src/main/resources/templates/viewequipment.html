@@ -3,7 +3,7 @@
 <head>
   <meta charset="ISO-8859-1">
   <title>View Equipment</title>
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="index-two.css">
   <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
   <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
   <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
@@ -26,6 +26,9 @@
       <tr th:each="equip: ${listEquipment}">
         <td th:text="${equip.name}">Name</td>
         <td th:text="${equip.type}">Type</td>
+        <td>
+        <a th:href="@{'/delete/' + ${equip.id}}">Delete</a>
+        </td>
       </tr>
       </tbody>
     </table>

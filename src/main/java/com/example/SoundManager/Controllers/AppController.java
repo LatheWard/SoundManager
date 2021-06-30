@@ -85,4 +85,42 @@ import java.util.List;
         return "cables";
     }
 
+    @GetMapping("/poweramps")
+    public String listpAmps(Model model) {
+        List<Equipment> listEquipment = equipRepo.findAll();
+        model.addAttribute("listEquipment", listEquipment);
+
+        return "poweramps";
     }
+
+    @GetMapping("/speakers")
+    public String listSpeakers(Model model) {
+        List<Equipment> listEquipment = equipRepo.findAll();
+        model.addAttribute("listEquipment", listEquipment);
+
+        return "speakers";
+    }
+
+    @GetMapping("/microphones")
+    public String listMics(Model model) {
+        List<Equipment> listEquipment = equipRepo.findAll();
+        model.addAttribute("listEquipment", listEquipment);
+
+        return "microphones";
+    }
+
+    @GetMapping("/miscl")
+    public String listMiscl(Model model) {
+        List<Equipment> listEquipment = equipRepo.findAll();
+        model.addAttribute("listEquipment", listEquipment);
+
+        return "miscl";
+    }
+
+    @RequestMapping("/delete/{id}")
+    public String deleteProduct(@PathVariable(name = "id") int id) {
+        equipmentService.delete(id);
+        return "redirect:/";
+    }
+
+}
