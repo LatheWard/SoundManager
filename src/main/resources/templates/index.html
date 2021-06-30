@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
   <title>Home</title>
@@ -26,9 +26,9 @@
   <div><a href="/viewequipment"><h2>View All Equipment</h2></a></div>
   <div><a th:href="@{/addequipment}"><h2>Add Equipment</h2></a></div>
   <div><a th:href="@{/register}"><h2>Register</h2></a></div>
-  <div><a th:href="@{/login}"><h2>Login</h2></a></div>
-  <div><a th:href="@{/users}"><h2>See all users</h2></a></div>
-  <div><a th:href="@{/logout}"><h2>Sign Out</h2></a></div>
+  <div sec:authorize="isAnonymous()"><a th:href="@{/login}"><h2>Login</h2></a></div>
+  <div sec:authorize="isAuthenticated()"><a th:href="@{/users}"><h2>See all users</h2></a></div>
+  <div sec:authorize="isAuthenticated()"><a th:href="@{/logout}"><h2>Sign Out</h2></a></div>
 </div>
 
 </body>

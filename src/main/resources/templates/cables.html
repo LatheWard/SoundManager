@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>cables</title>
-    <link rel="stylesheet" href="index-two.css">
+    <title>Cables</title>
+    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
+<div th:if="${listEquipment.size != 0}">
+
 <table class="table table-striped table-bordered">
     <thead class="thead">
     <tr>
-        <th style="background-color: #ef233c; color: white;">Name</th>
-        <th style="background-color: #ef233c; color: white;" >Type</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Options</th>
     </tr>
     </thead>
     <tbody>
@@ -22,14 +25,21 @@
             <div th:if="${equip.type == 'Cables'}">
             <td th:text="${equip.name}">Name</td>
             <td th:text="${equip.type}">Type</td>
-                <td>
+                <td sec:authorize="isAuthenticated()">
                     <a th:href="@{'/delete/' + ${equip.id}}">Delete</a>
+                </td>
+                <td sec:authorize="isAnonymous()">
+                    <a th:href="@{/login}">Login to edit</a>
                 </td>
             </div>
         </tr>
     </tr>
     </tbody>
 </table>
+</div>
+<div th:if="${listEquipment.size == 0}">
+    <h3>There are no cables listed</h3>
+</div>
 <a th:href="@{/}"><h2>Home</h2></a>
 </body>
 </html>
