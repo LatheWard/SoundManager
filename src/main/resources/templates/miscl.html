@@ -21,7 +21,7 @@
     </thead>
     <tbody>
     <tr th:each="equip: ${listEquipment}">
-        <div th:if="${equip.type == 'Miscl'}">
+        <div th:if="${equip.type == 'Misc'}">
             <td th:text="${equip.name}">Name</td>
             <td th:text="${equip.type}">Type</td>
             <td sec:authorize="isAuthenticated()">

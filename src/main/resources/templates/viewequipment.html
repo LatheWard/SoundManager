@@ -34,7 +34,7 @@
       </tbody>
     </table>
   </div>
-    <div th:if="${listEquipment.size != 0}">
+    <div th:if="${listEquipment.size == 0}">
         <h3>No equipment listed</h3>
     </div>
   <a th:href="@{/}"><h2>Home</h2></a>
